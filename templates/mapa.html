@@ -6,7 +6,34 @@
 </head>
 <body>
     <h1>Pontos no Mapa</h1>
-    <div id="mapa">{{ mapa|safe }}</div>
-    <p>Exemplo de geolocalizações no Brasil.</p>
+    <section>
+        <div class="filter-container">
+            <form action="/" method="get" id="filter-form">
+                <div>
+                    <label for="cidade-select">Filtro por Cidade:</label>
+                    <select name="cidade" id="cidade-select" onchange="document.getElementById('filter-form').submit()">
+                        <option value="Todas" {% if cidade_selecionada == 'Todas' %}selected{% endif %}>Todas as Cidades</option>
+                        {% for cidade in cidades %}
+                        <option value="{{ cidade }}" {% if cidade == cidade_selecionada %}selected{% endif %}>{{ cidade }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="porte-select">Filtro por Porte:</label>
+                    <select name="porte" id="porte-select" onchange="document.getElementById('filter-form').submit()">
+                        <option value="Todas" {% if porte_selecionado == 'Todas' %}selected{% endif %}>Todos os Portes</option>
+                        {% for porte in portes %}
+                        <option value="{{ porte }}" {% if porte == porte_selecionado %}selected{% endif %}>{{ porte }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <noscript><button type="submit">Aplicar Filtros</button></noscript> 
+            </form>
+        </div>
+        <div id="mapa">{{ mapa|safe }}</div>
+        <p>Exemplo de geolocalizações no Brasil.</p>
+    </section>
 </body>
 </html>
