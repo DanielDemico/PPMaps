@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa com Folium e Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style/style.css') }}">
+</head>
+<body>
+    <h1>Pontos no Mapa</h1>
+    <div id="mapa">{{ mapa|safe }}</div>
+    <p>Exemplo de geolocalizações no Brasil.</p>
+</body>
+</html>
