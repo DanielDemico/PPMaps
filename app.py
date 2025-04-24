@@ -59,7 +59,7 @@ def show_map():
         ).add_to(mapa)
         
     return render_template(
-        'mapa.html', 
+        'index.html', 
         mapa=mapa._repr_html_(), 
         cidades=cidades, 
         portes=portes,
