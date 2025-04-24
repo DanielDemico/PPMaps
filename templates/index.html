@@ -28,12 +28,25 @@
                         {% endfor %}
                     </select>
                 </div>
+
+                <div>
+                    <label for="heat_or_not">Visualizar Mapa de Calor: </label>
+                  
+                    <input type="checkbox" name="hot_map" value=True {% if heat_map %}checked{% endif %} onchange="document.getElementById('filter-form').submit()">
+                
+                </div>
                 
                 <noscript><button type="submit">Aplicar Filtros</button></noscript> 
             </form>
         </div>
         <div id="mapa">{{ mapa|safe }}</div>
-        <p>Exemplo de geolocalizações no Brasil.</p>
+
+
+        <div>
+            <form>
+                <input placeholder="confia">prompt para llm</input>
+            </form>
+        </div>
     </section>
 </body>
 </html>
